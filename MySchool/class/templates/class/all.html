@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% url 'create_class' as createClass %}
+{% url 'join_class' as joinClass %}
+
+
+	<h1>Classes</h1>
+	{% for c in classes %}
+		<div class="card border-danger m-1">
+			<div class="card-body shadow">
+				<a href="{% url 'class_detail' c.code %}" class="stretched-link"></a>
+				<h3>Class: {{c.name}}</h3>
+				<span><b>Code: </b>{{c.code}}</span><br>
+				<span><b>Class Teacher: </b>{{c.class_teacher.username}}</span><br>
+				<span><b>No. of students: </b>{{c.students.count }}</span>				
+			</div>
+		</div>
+	{% endfor %}
+	
+	{% if user.is_teacher %}
+		<hr>
+		<a href="{{createClass}}"><button class="btn btn-outline-danger">Create new Class</button></a>
+	{% elif user.is_student %}
+		<hr>
+		<a href="{{joinClass}}"><button class="btn btn-outline-danger">Join new Class</button></a>
+	{% endif %}
+{% endblock %}

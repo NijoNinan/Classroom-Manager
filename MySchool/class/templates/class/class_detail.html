@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% url 'classes_all' as allClass %}
+{% url 'class_add_content' obj.code as class_add_content %}
+
+<!-- url of add contents -->
+
+
+	
+	
+	<div class="container">
+
+		<div class="row">
+			<div class="col-8">
+				<h1>{{obj.name}}</h1>
+			</div>
+			<div class="col-3">
+				<p><b>Code : </b>{{obj.code}}</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-8">
+				<p><b>Info : </b>{{obj.info}}</p>
+			</div>
+			<div class="col-3">
+				<p><b>Class Teacher : </b>{{obj.class_teacher}}</p>
+			</div>
+			
+			
+		</div>
+		<hr>
+
+
+		<!-- contents section -->
+		<div class="row">
+			<div class="col-12">
+				<h5>Contents</h5>
+			</div>
+		</div>
+
+		{% if contents %}
+			{% for c in contents %}
+				<div class="card border-secondary m-1">
+					<div class="card-body shadow">
+						<a href="{% url 'class_view_content' obj.code c.id %}" class="stretched-link"></a>
+						<p>{{c.title}}</p>
+					</div>
+				</div>
+			{% endfor %}
+
+		{% else %}
+			<div class="row">
+				<div class="col-12">
+					<p>No contents yet</p>
+				</div>
+			</div>
+		{% endif %}
+		
+
+		<hr>
+
+
+		<!-- students section -->
+		<div class="row">
+			<div class="col-12">
+				<h5>Students ({{students.count}})</h5>
+			</div>
+		</div>
+
+
+		{% if students %}
+			{% for s in students %}
+				<div class="row">
+					<div class="col-12">
+						<p>{{s.first_name}} {{s.last_name}}</p>
+					</div>
+				</div>
+			{% endfor %}
+		{% else %}
+			<div class="row">
+				<div class="col-12">
+					<p>No Students enrolled yet !</p>
+				</div>
+			</div>
+		{% endif %}
+		
+
+		<hr>
+
+
+
+	</div>
+
+	{% if request.user.is_teacher %}
+		<a href="{{class_add_content}}"><button class="btn btn-outline-danger">Add Content</button><hr></a>
+	{% endif %}
+	
+	
+
+	<a href="{{allClass}}">All classes</a>
+
+{% endblock %}

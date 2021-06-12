@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	{% if user.is_teacher %}
+		<div class="container">
+			<p><b>Teacher</b></p>
+			<h1>Not Authorised!!</h1>
+		</div>
+	{% elif user.is_student %}
+		<div class="container">
+			<p><b>STUDENT</b></p>
+			<h1>Not Authorised!!</h1>
+		</div>
+		
+	{% else %}
+		<!-- display all teachers -->
+		<p><b>OFFICIAL</b></p>
+		<hr>
+		<div class="container">
+			{% for t in teacherList %}
+				<div class="row">
+					<h3>{{t.first_name}} {{t.last_name}}</h3>
+					<h6>{{t.email}}</h6>
+				</div>
+			{%endfor%}
+		</div>
+		<hr>
+		<a href="{% url 'teacher_create' %}"><button>Add Teacher</button></a>
+	{% endif %}
+{% endblock %}

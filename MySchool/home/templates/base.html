@@ -1,0 +1,92 @@
+{% extends "headers.html" %}
+
+
+{% block navbar %}
+
+<!-- accounts links -->
+{% url 'register' as register %}
+{% url 'login' as login %}
+{% url 'logout' as logout %}
+{% url 'view_profile' as view_profile %}
+
+<!-- class links -->
+{% url 'classes_all' as classes_all %}
+{% url 'create_class' as create_class %}
+{% url 'join_class' as join_class %}
+{% url 'class_detail' as class_detail %}
+
+<!-- teacher links -->
+{% url 'teacher_home' as teacher_home %}
+{% url 'teacher_create' as teacher_create %}
+
+<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
+		<div class="container">
+			<a class="navbar-brand" href="#">My School</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle">Accounts<b class="caret"></b></a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{{view_profile}}">view_profile</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{{register}}">register</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{{login}}">login</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{{logout}}">logout</a>
+						</div>
+					</li>
+
+					<li class="nav-item dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle">Class<b class="caret"></b></a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{{classes_all}}">classes_all</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{{create_class}}">create_class</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{{join_class}}">join_class</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{{class_detail}}">class_detail</a>
+						</div>
+					</li>
+
+					<li class="nav-item dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle">Teacher<b class="caret"></b></a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{{teacher_home}}">teacher_home</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{{teacher_create}}">teacher_create</a>
+						</div>
+					</li>
+
+					<li class="nav-item {% if request.path == logout %}active{% endif%}">
+						<a class="nav-link" href="{{logout}}">logout</a>
+					</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+{% endblock %}
+
+{% block content %}
+<p>Ha Ha Ha</p>
+
+{% endblock %}
+
+
+{% block footer %}
+
+<div class="col-12 d-flex justify-content-end fixed-bottom">
+	{% if user.is_authenticated %}
+		<h6 class="text-light">{{user.username}}</h6>
+	{% else %}
+		<h6 class="text-light">Not logged in</h6>
+	{% endif %}
+</div>
+
+{% endblock %}
+
+

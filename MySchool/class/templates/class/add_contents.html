@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+{% url 'classes_all' as allClass %}
+{% url 'class_detail' code as class_detail %}
+
+
+	<h1>Add new contents</h1>
+		<div class="row">
+			<div class="col-12">
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{form | crispy}}
+					<input type="submit" name="submit" class="btn btn-outline-danger">
+				</form>
+
+			</div>
+		</div>
+	<hr>
+	<a href="{{class_detail}}">Go back to class</a><br>
+	<a href="{{allClass}}">Show all classes</a>
+	
+
+{% endblock %}

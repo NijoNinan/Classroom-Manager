@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post" class="form-group">
+	{% csrf_token %}
+	{{smainform | crispy}}
+	{{sForm | crispy}}
+	<br>
+	<button type="submit" class="btn  btn-outline-danger" name="stud">Register Student</button>
+</form>
+
+<hr>
+
+<form method="post" class="form-group">
+	{% csrf_token %}
+	{{tmainform | crispy}}
+	{{tForm | crispy}}
+	<br>
+	<button type="submit" class="btn  btn-outline-danger" name="teach">Register Teacher</button>
+</form>
+
+
+{% endblock %}

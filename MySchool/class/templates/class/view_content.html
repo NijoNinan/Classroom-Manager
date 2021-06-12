@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% url 'classes_all' as allClass %}
+{% url 'class_detail' code as class_detail %}
+	
+	<h1>{{content.title}}</h1>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<p>{{content.info}}</p>			
+			</div>
+		</div>
+
+		{% if uploads %}
+			<div class="row">
+				{% for file in uploads %}
+					<div class="col-6">
+						<a href="{{file.files.url}}">{{file}}</a>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+		
+	</div>
+
+
+<hr>
+<a href="{{class_detail}}">Go back to the class</a><br>
+<a href="{{allClass}}">All my classes</a>
+{% endblock %}

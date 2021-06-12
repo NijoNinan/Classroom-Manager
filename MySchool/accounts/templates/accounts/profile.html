@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	{% if user.is_teacher %}
+		<div class="container">
+			<p><b>Name: </b>{{ user.first_name }} {{ user.last_name }}</p>
+			<p><b>Username: </b>{{ user.username }}</p>
+			<p><b>Degree: </b>{{ user.teacherprofile.degree }}</p>
+			<p><b>TEACHER</b></p>
+		</div>
+	{% elif user.is_student %}
+		<div class="container">
+			<p><b>Name: </b>{{ user.first_name }} {{ user.last_name }}</p>
+			<p><b>Username: </b>{{ user.username }}</p>
+			<p><b>Father Name: </b>{{ user.studentprofile.father_name }}</p>
+			<p><b>Mother Name: </b>{{ user.studentprofile.mother_name }}</p>
+		</div>
+		<p><b>STUDENT</b></p>
+	{% else %}
+		<div class="container">
+			<p><b>Name: </b>{{ user.first_name }} {{ user.last_name }}</p>
+			<p><b>Username: </b>{{ user.username }}</p>
+		</div>
+		<p><b>OFFICIAL</b></p>
+	{% endif %}
+{% endblock %}
