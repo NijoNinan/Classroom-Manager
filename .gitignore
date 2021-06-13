@@ -1,0 +1,5 @@
+# ignoring sql file
+db.sqlite3
+
+# ignoring uploads folder contents
+uploads/
