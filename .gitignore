@@ -3,3 +3,11 @@ db.sqlite3
 
 # ignoring uploads folder contents
 uploads/
+
+# ignore config file
+myconfigurations.py
+
+
+
+__pycache__
+*.log
