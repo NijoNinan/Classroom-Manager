@@ -10,7 +10,6 @@ class User(AbstractUser):
 	last_name = models.CharField(max_length=10)
 	date_of_birth = models.DateField()
 
-	# use Manytomany for class
 	
 	is_official = models.BooleanField(default=False)
 	is_teacher = models.BooleanField(default=False)

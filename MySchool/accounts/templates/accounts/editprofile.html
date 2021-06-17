@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post" class="form-group">
+	{% csrf_token %}
+	{{mainform | crispy}}
+	{{subForm | crispy}}
+	<br>
+	<button type="submit" class="btn  btn-outline-danger" name="stud">Edit Profile</button>
+</form>
+{% endblock %}

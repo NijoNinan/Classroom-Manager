@@ -22,18 +22,20 @@
 	<div class="container-fluid">
 
 		<!-- message section -->
-		<div class="row">
-			{% if messages %}
-				{% for message in messages %}
+		
+		{% if messages %}
+			{% for message in messages %}
+				<div class="row">
 					<div class="mx-auto col-6 justify-content-center alert {{ message.tags }} alert-dismissible" role="alert">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span>		<!-- X button -->
 						</button>
 						{{ message }}
 					</div>
-				{% endfor %}
-			{% endif %}
-		</div>
+				</div>
+			{% endfor %}
+		{% endif %}
+		
 
 		<!-- header Section -->
 		<div class="row">
