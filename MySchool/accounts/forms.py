@@ -8,6 +8,7 @@ class RegisterForm(UserCreationForm):
 		model = User
 		fields = ['username','email','first_name','last_name','date_of_birth', "password1", "password2"]
 
+
 class StudentProfileForm(forms.ModelForm):
 	class Meta:
 		model = StudentProfile
@@ -16,6 +17,7 @@ class StudentProfileForm(forms.ModelForm):
 		"father_name",
 		"mother_name",
 		]
+
 
 class TeacherProfileForm(forms.ModelForm):
 	code = forms.CharField(max_length=7)

@@ -4,9 +4,15 @@
 {% block content %}
 <form method="post" class="form-group">
 	{% csrf_token %}
-	{{mainform | crispy}}
+	{{ mainform.username | as_crispy_field }}
+	{{ mainform.email | as_crispy_field }}
+	{{ mainform.first_name | as_crispy_field }}
+	{{ mainform.last_name | as_crispy_field }}
+	{{ mainform.date_of_birth | as_crispy_field }}
 	{{subForm | crispy}}
+	{{ mainform.current_password | as_crispy_field }}
 	<br>
 	<button type="submit" class="btn  btn-outline-danger" name="stud">Edit Profile</button>
 </form>
 {% endblock %}
+

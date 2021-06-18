@@ -3,9 +3,14 @@
 
 {% block content %}
 <form method="post" class="form-group">
-	{% csrf_token %}
-	{{smainform | crispy}}
-	{{sForm | crispy}}
+	{{ smainform.username | as_crispy_field }}
+	{{ smainform.email | as_crispy_field }}
+	{{ smainform.first_name | as_crispy_field }}
+	{{ smainform.last_name | as_crispy_field }}
+	{{ smainform.date_of_birth | as_crispy_field }}
+	{{ sForm | crispy }}
+	{{ smainform.password1 | as_crispy_field }}
+	{{ smainform.password2 | as_crispy_field }}
 	<br>
 	<button type="submit" class="btn  btn-outline-danger" name="stud">Register Student</button>
 </form>
@@ -13,12 +18,25 @@
 <hr>
 
 <form method="post" class="form-group">
-	{% csrf_token %}
-	{{tmainform | crispy}}
-	{{tForm | crispy}}
+	{{ tmainform.username | as_crispy_field }}
+	{{ tmainform.email | as_crispy_field }}
+	{{ tmainform.first_name | as_crispy_field }}
+	{{ tmainform.last_name | as_crispy_field }}
+	{{ tmainform.date_of_birth | as_crispy_field }}
+	{{ tForm | crispy }}
+	{{ tmainform.password1 | as_crispy_field }}
+	{{ tmainform.password2 | as_crispy_field }}
 	<br>
 	<button type="submit" class="btn  btn-outline-danger" name="teach">Register Teacher</button>
 </form>
 
 
 {% endblock %}
+
+
+
+
+
+
+
+
