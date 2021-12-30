@@ -12,7 +12,7 @@ import random
 
 
 class AllClass(LoginRequiredMixin,View):
-	template = 'class/all.html'
+	template = 'classes/all.html'
 
 	def get(self,request):
 		context = dict()
@@ -44,7 +44,7 @@ class AllClass(LoginRequiredMixin,View):
 
 
 class CreateClass(LoginRequiredMixin, View):
-	template = 'class/create_class.html'
+	template = 'classes/create_class.html'
 
 	def get(self,request):
 		context = dict()
@@ -97,7 +97,7 @@ class CreateClass(LoginRequiredMixin, View):
 
 
 class JoinClass(LoginRequiredMixin, View):
-	template = 'class/join_class.html'
+	template = 'classes/join_class.html'
 
 	def get(self,request):
 		if not request.user.is_student:
@@ -134,7 +134,7 @@ class JoinClass(LoginRequiredMixin, View):
 
 
 class ViewClassDetail(LoginRequiredMixin, View):
-	template = 'class/class_detail.html'
+	template = 'classes/class_detail.html'
 
 	def get(self,request,code):
 		try:
@@ -188,7 +188,7 @@ class ViewClassDetail(LoginRequiredMixin, View):
 
 
 class AddContents(LoginRequiredMixin, View):
-	template = 'class/add_contents.html'
+	template = 'classes/add_contents.html'
 
 	def get(self,request,code):
 		try:
@@ -251,7 +251,7 @@ class AddContents(LoginRequiredMixin, View):
 
 
 class ViewContent(LoginRequiredMixin, View):
-	template = 'class/view_content.html'
+	template = 'classes/view_content.html'
 
 	def get(self,request,code,cid):
 		

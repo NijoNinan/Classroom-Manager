@@ -3,6 +3,7 @@
 
 {% block content %}
 <form method="post" class="form-group">
+	{% csrf_token %}
 	{{ smainform.username | as_crispy_field }}
 	{{ smainform.email | as_crispy_field }}
 	{{ smainform.first_name | as_crispy_field }}
@@ -18,6 +19,7 @@
 <hr>
 
 <form method="post" class="form-group">
+	{% csrf_token %}
 	{{ tmainform.username | as_crispy_field }}
 	{{ tmainform.email | as_crispy_field }}
 	{{ tmainform.first_name | as_crispy_field }}

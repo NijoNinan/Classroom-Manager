@@ -18,7 +18,7 @@ A django project which helps teachers to send notes to students in her class
 - create a virtual environment and activate it
 - clone my project using `git clone https://github.com/NijoNinan/Classroom-Manager.git`
 - run `pip install -r requirements.txt`
-- run `cd MySchool`
+- run `cd TheSchool`
 - run `python manage.py makemigrations`
 - run `python manage.py migrate`
 - run `python manage.py runserver`

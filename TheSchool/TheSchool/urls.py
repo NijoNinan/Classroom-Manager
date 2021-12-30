@@ -1,4 +1,4 @@
-"""MySchool URL Configuration
+"""TheSchool URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -26,7 +26,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('teacher/', include('teacher.urls')),
-    path('class/', include('class.urls')),
+    path('class/', include('classes.urls')),
 ]
 
 # for displaying uploaded files
