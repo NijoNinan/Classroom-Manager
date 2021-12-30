@@ -1,5 +1,0 @@
-
-cd C:\Users\nijon\Desktop\code\django\Classroom
-Scripts\activate
-cd Classroom-Manager\MySchool
-python manage.py runserver
